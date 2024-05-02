@@ -1,13 +1,9 @@
-import inq from 'inquirer';
+import input from './Data.js'
+import ch from 'chalk';
 
-let input=await inq.prompt([{
-    name:"data",
-    type:"input",
-    message:"Enter text to count words in the text : \n"
-}]);
-
-console.log(`Your Entered text is : \n${input.data}`);
-
-let onlyWords=input.data.replaceAll(" ","");
-
-console.log(`Total Words = ${onlyWords.length}`);
+const countWord=()=>{
+    console.log(ch.cyan("Your Entered text is : \n",ch.italic(`"${input.data}"`)));
+    let onlyWords=input.data.replaceAll(" ","");
+    console.log(ch.bold.green(`Total Words = ${onlyWords.length}`));
+}
+export default countWord;
